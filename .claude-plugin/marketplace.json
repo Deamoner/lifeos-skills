@@ -1,0 +1,25 @@
+{
+  "name": "lifeos-skills",
+  "owner": { "name": "Matt Davis", "url": "https://github.com/Deamoner" },
+  "metadata": { "description": "LifeOS: a chief of staff plus owner bots for each area of your life.", "version": "1.0.0" },
+  "plugins": [
+    {
+      "name": "lifeos",
+      "description": "LifeOS initialize skill plus 9 life-area owner bot skills.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/lifeos-career-earn",
+        "./skills/lifeos-health-fitness",
+        "./skills/lifeos-home",
+        "./skills/lifeos-initialize",
+        "./skills/lifeos-learning",
+        "./skills/lifeos-money",
+        "./skills/lifeos-parenting",
+        "./skills/lifeos-partner",
+        "./skills/lifeos-social-outreach",
+        "./skills/lifeos-work-projects"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,21 @@
 # LifeOS Skills
 
+## Quick install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Deamoner/lifeos-skills/main/install.sh | bash
+```
+
+Or paste this to your AI agent:
+
+> Install the LifeOS skills from https://github.com/Deamoner/lifeos-skills for yourself (follow AGENTS.md), then run lifeos-initialize with me.
+
+Then:
+1. Restart your agent or open a new session.
+2. Ask it to run `lifeos-initialize`.
+3. Answer the intake questions (say "skip" to any).
+4. Add the one or two area skills it recommends, then grow from there.
+
 **Lose the stress, build your dream life with AI.**
 
 LifeOS isn't about saving a few minutes. It's about executing at life better. Teach a team of AI agents how you want your life run, let them do it relentlessly, and keep giving them more as they can handle more. The thoughtful gift, the anniversary trip, the health check-in, the follow-up you would have forgotten: things you never had time for now get done, quietly, every day.
@@ -25,19 +41,44 @@ Start with `lifeos-initialize`, then add one area at a time.
 
 ## Install
 
-Each skill is a folder with a `SKILL.md`. Any agent that supports skill files (Grok Bot, Claude Code, Cursor, opencode and similar) can use them.
+**1. One command** (detects Claude Code, Cursor, opencode, Codex and Grok; safe to rerun to update):
 
 ```bash
-git clone https://github.com/Deamoner/lifeos-skills.git
+curl -fsSL https://raw.githubusercontent.com/Deamoner/lifeos-skills/main/install.sh | bash
 ```
 
-Then either copy the folders from `skills/` into your agent's skills directory, or paste a `SKILL.md` into your agent and ask it to save it as a skill. Run `lifeos-initialize` first and answer its intake questions; it tells you which area skills to add next.
+Install into a specific folder: `curl -fsSL https://raw.githubusercontent.com/Deamoner/lifeos-skills/main/install.sh | bash -s -- --dir ~/.claude/skills` (or set `LIFEOS_SKILLS_DIR`).
+
+With the open skills CLI (Node 22+): `npx skills add Deamoner/lifeos-skills -g -y`
+
+In Claude Code: `/plugin marketplace add Deamoner/lifeos-skills` then `/plugin install lifeos@lifeos-skills`
+
+**2. Or paste this link to your agent.** Say: "Install the LifeOS skills from https://github.com/Deamoner/lifeos-skills for yourself (follow AGENTS.md), then run lifeos-initialize with me." Instructions for the agent are in [AGENTS.md](AGENTS.md).
+
+**3. Manual.** `git clone https://github.com/Deamoner/lifeos-skills.git` and copy the folders in `skills/` into your agent's skills folder:
+
+| Agent | Global skills folder |
+|---|---|
+| Claude Code | `~/.claude/skills/` |
+| Cursor | `~/.cursor/skills/` |
+| opencode | `~/.config/opencode/skills/` |
+| Codex and most others | `~/.agents/skills/` |
+
+No skills folder? Paste a `SKILL.md` into your agent and ask it to save it as a skill.
+
+**After install:** run `lifeos-initialize` first and answer its intake questions; it tells you which area skills to add next.
 
 ## How to grow it
 
 1. Initialize with your chief of staff and one or two areas that matter most.
 2. Engineer your touchpoints: a daily brief page, a phone number for texts and calls, a printer for nice things.
 3. Keep iterating. Give the system more context and integrations as it proves it can handle them, and keep scorecards live on your daily brief.
+
+## Maintaining this repo
+
+- Skills live under `skills/<name>/SKILL.md`, with `name` and `description` front matter.
+- Keep them generic and public-safe: no names, family details, accounts or private data.
+- When you add or rename a skill, update the README skills table, `.claude-plugin/marketplace.json` and the raw links in `AGENTS.md`.
 
 ## License
 
